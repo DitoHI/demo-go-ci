@@ -21,4 +21,4 @@ build:
   script:
     - docker build -t demo-go-ci-build .
     - docker system prune -f
-    - docker run -d -p 8080:8080 demo-go-ci-build
+    - docker run -d -p 9090:9090 demo-go-ci-build
