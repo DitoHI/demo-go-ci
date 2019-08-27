@@ -21,6 +21,6 @@ COPY --from=build /go/src/gitlab.com/ditohafizh/demo-go-ci/app /usr/local/bin/ap
 
 RUN chmod +x /usr/local/bin/app
 
-EXPOSE 8080
+EXPOSE 9090
 
 ENTRYPOINT ["/usr/local/bin/app"]
