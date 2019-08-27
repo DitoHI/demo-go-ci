@@ -1,0 +1,24 @@
+variables:
+  PACKAGE_PATH: /go/src/gitlab.com/ditohafizh/demo-go-ci
+
+stages:
+  - build
+
+.anchors:
+  - &inject-gopath
+      mkdir -p $(dirname ${PACKAGE_PATH})
+      && ln -s ${CI_PROJECT_DIR} ${PACKAGE_PATH}
+      && cd ${PACKAGE_PATH}
+
+build:
+  stage: build
+  only:
+    - master
+  image: docker:latest
+  services:
+    - docker:dind
+    - postgres:latest
+  script:
+    - docker build -t demo-go-ci-build .
+    - docker system prune -f
+    - docker run -d -p 8080:8080 demo-go-ci-build
