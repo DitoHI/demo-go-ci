@@ -1,0 +1,4 @@
+type Mutation {
+    createUser(username: String!, email: String!): User!
+    createTodo(title: String!, description: String, userId: String!): Todo!
+}

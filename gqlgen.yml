@@ -1,0 +1,23 @@
+# .gqlgen.yml example
+#
+# Refer to https://gqlgen.com/config/
+# for detailed .gqlgen.yml documentation.
+
+schema:
+- graphql/schema/user.graphql
+- graphql/schema/todo.graphql
+- graphql/schema/query.graphql
+- graphql/schema/mutation.graphql
+exec:
+  filename: graphql/generated.go
+model:
+  filename: graphql/models_gen.go
+models:
+  User:
+    model: gitlab.com/ditohafizh/demo-go-ci/api/models.User
+  Todo:
+    model: gitlab.com/ditohafizh/demo-go-ci/api/models.Todo
+resolver:
+  filename: graphql/resolver.go
+  type: Resolver
+autobind: []

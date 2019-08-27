@@ -1,0 +1,4 @@
+type Query {
+    listUsers: [User!]!
+    listTodos: [Todo!]!
+}
